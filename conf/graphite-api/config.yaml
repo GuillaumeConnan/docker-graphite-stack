@@ -1,0 +1,28 @@
+finders:
+  - graphite_api.finders.whisper.WhisperFinder
+
+functions:
+  - graphite_api.functions.SeriesFunctions
+  - graphite_api.functions.PieFunctions
+
+whisper:
+  directories:
+    - /opt/graphite/storage/whisper
+
+time_zone: Europe/Paris
+
+carbon:
+  hosts:
+    - 127.0.0.1:7002:a
+  timeout: 1
+  retry_delay: 15
+  carbon_prefix: carbon
+  replication_factor: 1
+
+allowed_origins:
+  - .*
+
+cache:
+  type: memcached
+  memcached_servers:
+    - 127.0.0.1:11211
