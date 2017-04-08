@@ -20,6 +20,7 @@ RUN apt-get update                && \
     apt-get -y -q autoremove
 
 RUN apt-get install -y -q build-essential    \
+                          procps             \
                           supervisor         \
                           wget               \
                           python-pip         \

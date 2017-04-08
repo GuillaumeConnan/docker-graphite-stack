@@ -16,5 +16,9 @@ if [ ! -f "/opt/grafana/conf/defaults.ini" ]; then
     /bin/cp -ru /opt/grafana/conf-back/defaults.ini /opt/grafana/conf/defaults.ini
 fi
 
+# Remove old PID files
+/bin/rm -f /run/supervisord.pid
+/bin/rm -f /opt/graphite/storage/carbon-cache-a.pid
+
 # Init
 /usr/bin/python /usr/bin/supervisord
