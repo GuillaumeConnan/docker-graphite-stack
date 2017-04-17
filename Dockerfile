@@ -14,13 +14,12 @@ RUN echo "deb http://deb.debian.org/debian stretch main contrib non-free"       
     echo "deb http://security.debian.org stretch/updates main contrib non-free"   >> /etc/apt/sources.list
 
 RUN apt-get update                && \
-    apt-get upgrade -y -q         && \
-    apt-get dist-upgrade -y -q    && \
+    apt-get -y -q upgrade         && \
+    apt-get -y -q dist-upgrade    && \
     apt-get -y -q autoclean       && \
     apt-get -y -q autoremove
 
-RUN apt-get install -y -q build-essential    \
-                          procps             \
+RUN apt-get -y -q install build-essential    \
                           supervisor         \
                           wget               \
                           python-pip         \
